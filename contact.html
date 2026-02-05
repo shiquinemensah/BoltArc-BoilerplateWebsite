@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOLT ARC — Contact</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- GSAP (optional) -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"
+    ></script>
+
+    <script src="loader.js"></script>
+
+    <!-- Site behavior -->
+    <script defer src="main.js"></script>
+
+    <!-- Contact page logic -->
+    <script defer src="contact.js"></script>
+  </head>
+
+  <body>
+    <!-- PAGE LOADER (custom, non-home) -->
+    <div id="pageLoader" class="pageLoader" aria-hidden="false">
+      <div class="pageLoader-inner">
+        <div class="pageLoader-top">
+          <img class="pageLoader-logo" src="img/logoARC.png" alt="Bolt Arc" />
+          <span class="pageLoader-kicker">LOADING</span>
+        </div>
+
+        <div class="pageLoader-bar" aria-hidden="true">
+          <span class="pageLoader-barFill"></span>
+        </div>
+
+        <p class="pageLoader-note">ENERGY &amp; INTENTION</p>
+
+        <div class="pageLoader-fx" aria-hidden="true">
+          <div class="pageLoader-scan"></div>
+          <div class="pageLoader-vignette"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TICKER -->
+    <div class="ticker" role="region" aria-label="Bolt Arc announcements">
+      <div class="ticker-inner">
+        <div class="ticker-track" aria-hidden="true">
+          <span class="ticker-item">SHOP NOW</span
+          ><span class="ticker-dot">•</span>
+          <span class="ticker-item">ARC IS COMING</span
+          ><span class="ticker-dot">•</span>
+          <span class="ticker-item">ENERGY &amp; INTENTION</span
+          ><span class="ticker-dot">•</span>
+          <span class="ticker-item">PERFORMANCE-DRIVEN APPAREL</span
+          ><span class="ticker-dot">•</span>
+          <span class="ticker-item">MOVE WITH CONFIDENCE</span
+          ><span class="ticker-dot">•</span>
+        </div>
+        <div class="ticker-track" aria-hidden="true">
+          <span class="ticker-item">SHOP NOW</span
+          ><span class="ticker-dot">•</span>
+          <span class="ticker-item">ARC IS COMING</span
+          ><span class="ticker-dot">•</span>
+          <span class="ticker-item">ENERGY &amp; INTENTION</span
+          ><span class="ticker-dot">•</span>
+          <span class="ticker-item">PERFORMANCE-DRIVEN APPAREL</span
+          ><span class="ticker-dot">•</span>
+          <span class="ticker-item">MOVE WITH CONFIDENCE</span
+          ><span class="ticker-dot">•</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="topbar">
+      <button
+        id="hamburger"
+        class="iconBtn"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <span class="hamb-line"></span>
+        <span class="hamb-line"></span>
+        <span class="hamb-line"></span>
+      </button>
+
+      <a class="topLogo" href="index.html#home" aria-label="Bolt Arc Home">
+        <img src="img/logoARC.png" alt="Bolt Arc" />
+      </a>
+
+      <div class="topActions">
+        <button class="iconBtn" type="button" aria-label="Account">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"
+            />
+          </svg>
+        </button>
+        <button class="iconBtn" type="button" aria-label="Bag">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M7 7V6a5 5 0 0 1 10 0v1h3v15H4V7h3Zm2 0h6V6a3 3 0 0 0-6 0v1Z"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- MENU (CENTER SLIDE PANEL) -->
+    <div id="backdrop" class="backdrop" aria-hidden="true"></div>
+
+    <aside id="menu" class="menu menu-center" aria-hidden="true">
+      <div class="menu-center-panel">
+        <div class="menu-center-head">
+          <span class="menu-center-kicker">MENU</span>
+
+          <button
+            id="closeMenu"
+            class="iconBtn menuClose"
+            type="button"
+            aria-label="Close menu"
+          >
+            <span class="x"></span>
+            <span class="x"></span>
+          </button>
+        </div>
+
+        <nav class="menu-center-nav" aria-label="Primary">
+          <a class="menu-center-link" href="index.html">HOME</a>
+          <a class="menu-center-link" href="shop.html">SHOP</a>
+          <a class="menu-center-link" href="sports">SPORTS</a>
+          <a class="menu-center-link" href="gallery.html">GALLERY</a>
+          <a class="menu-center-link" href="contact.html">CONTACT</a>
+        </nav>
+
+        <div class="menu-center-foot">
+          <a class="menu-center-cta" href="shop.html">SHOP DROP_01</a>
+          <p class="menu-center-note">
+            Futuristic streetwear engineered for motion.
+          </p>
+        </div>
+      </div>
+    </aside>
+
+    <main class="contact-page">
+      <!-- HERO -->
+      <section class="contact-hero sec" id="contact">
+        <div class="wrap">
+          <div class="contact-heroHead">
+            <p class="sec-kicker">BOLT ARC / CONTACT</p>
+            <h1 class="contact-title">CONTACT</h1>
+            <p class="sec-copy">
+              For collaborations, support, and wholesale. Move with
+              confidence—message with intent.
+            </p>
+          </div>
+
+          <!-- Main layout -->
+          <div class="contact-layout">
+            <!-- Form card -->
+            <section
+              class="contact-card contact-formCard"
+              aria-label="Contact form"
+            >
+              <div class="contact-cardHead">
+                <h2 class="contact-cardTitle">Send a message</h2>
+                <p class="contact-cardSub">
+                  We reply within 24 hours (Mon–Fri).
+                </p>
+              </div>
+
+              <form id="contactForm" class="contact-form" novalidate>
+                <div class="contact-grid">
+                  <label class="contact-field">
+                    <span class="contact-label">Name</span>
+                    <input
+                      id="cName"
+                      name="name"
+                      type="text"
+                      placeholder="Your name"
+                      autocomplete="name"
+                    />
+                    <span
+                      class="contact-err"
+                      data-err-for="cName"
+                      aria-live="polite"
+                    ></span>
+                  </label>
+
+                  <label class="contact-field">
+                    <span class="contact-label">Email</span>
+                    <input
+                      id="cEmail"
+                      name="email"
+                      type="email"
+                      placeholder="you@email.com"
+                      autocomplete="email"
+                    />
+                    <span
+                      class="contact-err"
+                      data-err-for="cEmail"
+                      aria-live="polite"
+                    ></span>
+                  </label>
+                </div>
+
+                <label class="contact-field">
+                  <span class="contact-label">Subject</span>
+                  <select id="cSubject" name="subject" class="contact-select">
+                    <option value="Support">Support</option>
+                    <option value="Order">Order</option>
+                    <option value="Collab">Collaboration</option>
+                    <option value="Wholesale">Wholesale</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </label>
+
+                <label class="contact-field">
+                  <span class="contact-label">Message</span>
+                  <textarea
+                    id="cMessage"
+                    name="message"
+                    rows="6"
+                    placeholder="Tell us what you need…"
+                  ></textarea>
+                  <span
+                    class="contact-err"
+                    data-err-for="cMessage"
+                    aria-live="polite"
+                  ></span>
+                </label>
+
+                <div class="contact-actions">
+                  <button class="rail-btn contact-submit" type="submit">
+                    Send
+                  </button>
+                  <a class="rail-btn rail-btn-ghost" href="shop.html"
+                    >Shop Drop_01</a
+                  >
+                </div>
+
+                <p class="contact-mini">
+                  By sending this message you agree we may respond to you via
+                  email.
+                </p>
+              </form>
+            </section>
+
+            <!-- Side card -->
+            <aside
+              class="contact-card contact-sideCard"
+              aria-label="Contact options"
+            >
+              <div class="contact-cardHead">
+                <h2 class="contact-cardTitle">Quick actions</h2>
+                <p class="contact-cardSub">Use the fastest route.</p>
+              </div>
+
+              <div class="contact-quick">
+                <a
+                  class="contact-action"
+                  href="mailto:hello@boltarc.com"
+                  aria-label="Email Bolt Arc"
+                >
+                  <span class="contact-ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"
+                      />
+                    </svg>
+                  </span>
+                  <span class="contact-actionText">
+                    <span class="contact-actionTitle">Email</span>
+                    <span class="contact-actionMeta">hello@boltarc.com</span>
+                  </span>
+                </a>
+
+                <a
+                  class="contact-action"
+                  href="https://wa.me/447000000000"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="WhatsApp Bolt Arc"
+                >
+                  <span class="contact-ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M12 2a9.7 9.7 0 0 0-9.7 9.7A9.6 9.6 0 0 0 3.6 16L2 22l6-1.6a9.7 9.7 0 0 0 4 .9A9.7 9.7 0 1 0 12 2Zm0 17.6a7.9 7.9 0 0 1-3.6-.9l-.3-.2-3.6 1 .9-3.5-.2-.3a7.8 7.8 0 1 1 14.3-4.1 7.8 7.8 0 0 1-7.5 8Z"
+                      />
+                    </svg>
+                  </span>
+                  <span class="contact-actionText">
+                    <span class="contact-actionTitle">WhatsApp</span>
+                    <span class="contact-actionMeta">Fast support</span>
+                  </span>
+                </a>
+
+                <a class="contact-action" href="#" aria-label="Book meeting">
+                  <span class="contact-ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm13 8H6v10h14V10Z"
+                      />
+                    </svg>
+                  </span>
+                  <span class="contact-actionText">
+                    <span class="contact-actionTitle">Book meeting</span>
+                    <span class="contact-actionMeta">15-min call</span>
+                  </span>
+                </a>
+              </div>
+
+              <div class="contact-divider"></div>
+
+              <div class="contact-hours">
+                <h3 class="contact-miniTitle">Hours</h3>
+                <p class="contact-miniText">Mon–Fri, 09:00–18:00 (UK)</p>
+
+                <h3 class="contact-miniTitle">Location</h3>
+                <p class="contact-miniText">London, United Kingdom</p>
+
+                <h3 class="contact-miniTitle">Press / Wholesale</h3>
+                <p class="contact-miniText">Use “Wholesale” in the subject.</p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="contact-faq sec" data-sec="faq">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2 class="sec-title">FAQ</h2>
+            <p class="sec-copy">Quick answers. Less friction.</p>
+          </div>
+
+          <div class="faq">
+            <button class="faq-item" type="button" aria-expanded="false">
+              <span class="faq-q">When will Drop_01 ship?</span>
+              <span class="faq-ico" aria-hidden="true">+</span>
+              <span class="faq-a" hidden>
+                Shipping windows will be shown at checkout. For early orders,
+                expect 2–5 business days (UK).
+              </span>
+            </button>
+
+            <button class="faq-item" type="button" aria-expanded="false">
+              <span class="faq-q">Do you do returns?</span>
+              <span class="faq-ico" aria-hidden="true">+</span>
+              <span class="faq-a" hidden>
+                Yes—returns are accepted within 14 days if unworn and in
+                original condition. Email support for the return label.
+              </span>
+            </button>
+
+            <button class="faq-item" type="button" aria-expanded="false">
+              <span class="faq-q">Sizing help?</span>
+              <span class="faq-ico" aria-hidden="true">+</span>
+              <span class="faq-a" hidden>
+                Use your usual athletic fit. If you’re between sizes, go one up
+                for a relaxed street silhouette.
+              </span>
+            </button>
+
+            <button class="faq-item" type="button" aria-expanded="false">
+              <span class="faq-q">Collaborations / athletes?</span>
+              <span class="faq-ico" aria-hidden="true">+</span>
+              <span class="faq-a" hidden>
+                Send your profile and socials via the form, and select
+                “Collaboration” as the subject.
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+           FOOTER — Contact + icons + menu links
+           animation hooks:
+           .foot / .foot-grid / .foot-card / .foot-links / .foot-actions
+      ========================= -->
+    <footer class="foot" id="contact" data-sec="footer">
+      <div class="wrap">
+        <div class="foot-grid">
+          <div class="foot-card" data-anim="foot-brand">
+            <div class="foot-logoRow">
+              <img
+                class="foot-logo"
+                src="img/logoARC.png"
+                alt="Bolt Arc logo"
+              />
+            </div>
+            <p class="foot-copy">
+              Performance streetwear engineered for motion. Built for pace.
+              Designed for presence.
+            </p>
+          </div>
+
+          <div class="foot-card" data-anim="foot-contact">
+            <h5 class="foot-title">CONTACT</h5>
+
+            <div class="foot-actions">
+              <a
+                class="foot-action"
+                href="mailto:hello@boltarc.com"
+                aria-label="Email"
+              >
+                <span class="foot-ico" aria-hidden="true">
+                  <!-- mail icon -->
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"
+                    />
+                  </svg>
+                </span>
+                <span>Email</span>
+              </a>
+
+              <a
+                class="foot-action"
+                href="https://wa.me/447000000000"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+              >
+                <span class="foot-ico" aria-hidden="true">
+                  <!-- whatsapp-ish bubble -->
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 2a9.7 9.7 0 0 0-9.7 9.7A9.6 9.6 0 0 0 3.6 16L2 22l6-1.6a9.7 9.7 0 0 0 4 .9A9.7 9.7 0 1 0 12 2Zm0 17.6a7.9 7.9 0 0 1-3.6-.9l-.3-.2-3.6 1 .9-3.5-.2-.3a7.8 7.8 0 1 1 14.3-4.1 7.8 7.8 0 0 1-7.5 8Z"
+                    />
+                  </svg>
+                </span>
+                <span>WhatsApp</span>
+              </a>
+
+              <a class="foot-action" href="#" aria-label="Book a meeting">
+                <span class="foot-ico" aria-hidden="true">
+                  <!-- calendar -->
+                  <svg viewBox="0 0 24 24">
+                    <path d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm13 8H6v10h14V10Z" />
+                  </svg>
+                </span>
+                <span>Book meeting</span>
+              </a>
+
+              <a class="foot-action" href="#" aria-label="Read FAQs">
+                <span class="foot-ico" aria-hidden="true">
+                  <!-- info -->
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 15h-2v-6h2Zm0-8h-2V7h2Z"
+                    />
+                  </svg>
+                </span>
+                <span>Read FAQs</span>
+              </a>
+            </div>
+
+            <p class="foot-small">
+              Mon–Fri, 09:00–18:00 (UK). Response within 24 hours.
+            </p>
+          </div>
+
+          <div class="foot-card" data-anim="foot-links">
+            <h5 class="foot-title">LINKS</h5>
+            <nav class="foot-links" aria-label="Footer navigation">
+              <a href="/">Home</a>
+              <a href="shop.html">SHOP</a>
+              <a href="sports.html">SPORTS</a>
+              <a href="gallery.html">GALLERY Tech</a>
+              <a href="contact.html">CONTACT US</a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="foot-bottom" data-anim="foot-bottom">
+          <span>© <span id="year"></span> Bolt Arc. All rights reserved.</span>
+          <span class="foot-dim">Built for motion.</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast -->
+    <div
+      class="cart-toast"
+      id="contactToast"
+      aria-live="polite"
+      aria-atomic="true"
+      hidden
+    >
+      Message sent
+    </div>
+  </body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOLT ARC — Sports</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- GSAP (optional) -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"
+    ></script>
+
+    <!-- Site behavior -->
+    <script defer src="main.js"></script>
+
+
+    <!-- Sports page -->
+    <script defer src="sports.js"></script>
+  </head>
+
+  <body>
+    <!-- PAGE LOADER (custom, non-home) -->
+    <div id="pageLoader" class="pageLoader" aria-hidden="false">
+      <div class="pageLoader-inner">
+        <div class="pageLoader-top">
+          <img class="pageLoader-logo" src="img/logoARC.png" alt="Bolt Arc" />
+          <span class="pageLoader-kicker">LOADING</span>
+        </div>
+
+        <div class="pageLoader-bar" aria-hidden="true">
+          <span class="pageLoader-barFill"></span>
+        </div>
+
+        <p class="pageLoader-note">ENERGY &amp; INTENTION</p>
+
+        <div class="pageLoader-fx" aria-hidden="true">
+          <div class="pageLoader-scan"></div>
+          <div class="pageLoader-vignette"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TICKER -->
+    <div class="ticker" role="region" aria-label="Bolt Arc announcements">
+      <div class="ticker-inner">
+        <div class="ticker-track" aria-hidden="true">
+          <span class="ticker-item">SPORTS DIVISION</span
+          ><span class="ticker-dot">•</span>
+          <span class="ticker-item">BUILT FOR IMPACT</span
+          ><span class="ticker-dot">•</span>
+          <span class="ticker-item">ENERGY &amp; INTENTION</span
+          ><span class="ticker-dot">•</span>
+          <span class="ticker-item">ENGINEERED FOR MOTION</span
+          ><span class="ticker-dot">•</span>
+          <span class="ticker-item">TRAIN SMARTER</span
+          ><span class="ticker-dot">•</span>
+        </div>
+        <div class="ticker-track" aria-hidden="true">
+          <span class="ticker-item">SPORTS DIVISION</span
+          ><span class="ticker-dot">•</span>
+          <span class="ticker-item">BUILT FOR IMPACT</span
+          ><span class="ticker-dot">•</span>
+          <span class="ticker-item">ENERGY &amp; INTENTION</span
+          ><span class="ticker-dot">•</span>
+          <span class="ticker-item">ENGINEERED FOR MOTION</span
+          ><span class="ticker-dot">•</span>
+          <span class="ticker-item">TRAIN SMARTER</span
+          ><span class="ticker-dot">•</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="topbar">
+      <button
+        id="hamburger"
+        class="iconBtn"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <span class="hamb-line"></span>
+        <span class="hamb-line"></span>
+        <span class="hamb-line"></span>
+      </button>
+
+      <a class="topLogo" href="index.html#home" aria-label="Bolt Arc Home">
+        <img src="img/logoARC.png" alt="Bolt Arc" />
+      </a>
+
+      <div class="topActions">
+        <button class="iconBtn" type="button" aria-label="Account">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"
+            />
+          </svg>
+        </button>
+        <button class="iconBtn" type="button" aria-label="Bag">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M7 7V6a5 5 0 0 1 10 0v1h3v15H4V7h3Zm2 0h6V6a3 3 0 0 0-6 0v1Z"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- MENU -->
+    <div id="backdrop" class="backdrop" aria-hidden="true"></div>
+    <aside id="menu" class="menu menu-center" aria-hidden="true">
+      <div class="menu-center-panel">
+        <div class="menu-center-head">
+          <span class="menu-center-kicker">MENU</span>
+          <button
+            id="closeMenu"
+            class="iconBtn menuClose"
+            type="button"
+            aria-label="Close menu"
+          >
+            <span class="x"></span><span class="x"></span>
+          </button>
+        </div>
+
+        <nav class="menu-center-nav" aria-label="Primary">
+          <a class="menu-center-link" href="index.html#home">HOME</a>
+          <a class="menu-center-link" href="shop.html">SHOP</a>
+          <a class="menu-center-link" href="sports.html">SPORTS</a>
+          <a class="menu-center-link" href="gallery.html">GALLERY</a>
+          <a class="menu-center-link" href="contact.html">CONTACT</a>
+        </nav>
+
+        <div class="menu-center-foot">
+          <a class="menu-center-cta" href="shop.html">SHOP DROP_01</a>
+          <p class="menu-center-note">
+            Futuristic streetwear engineered for motion.
+          </p>
+        </div>
+      </div>
+    </aside>
+
+    <main class="sports-page">
+      <!-- HERO SPLIT (different from home layout) -->
+      <section class="sports-hero sec" id="sports">
+        <div class="wrap">
+          <div class="sports-heroGrid">
+            <div class="sports-heroCopy" data-reveal>
+              <p class="sec-kicker">BOLT ARC / SPORTS</p>
+              <h1 class="sports-title">SPORTS DIVISION</h1>
+
+              <p class="sports-sub">
+                BOLT ARC is performance streetwear engineered for athletes and
+                everyday movers. We build garments that support speed,
+                stability, and recovery—without sacrificing presence.
+              </p>
+
+              <div class="sports-heroStats" role="list">
+                <div class="sports-stat" role="listitem">
+                  <span class="sports-num">01</span>
+                  <span class="sports-label">Mobility-first patterns</span>
+                </div>
+                <div class="sports-stat" role="listitem">
+                  <span class="sports-num">02</span>
+                  <span class="sports-label">Sweat management</span>
+                </div>
+                <div class="sports-stat" role="listitem">
+                  <span class="sports-num">03</span>
+                  <span class="sports-label">Impact-ready layering</span>
+                </div>
+              </div>
+
+              <div class="sports-heroActions">
+                <a class="rail-btn" href="shop.html">Shop Performance</a>
+                <a class="rail-btn rail-btn-ghost" href="gallery.html"
+                  >See In Motion</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="sports-heroMedia"
+              aria-label="Sports visual"
+              data-reveal
+            >
+              <div class="sports-heroFrame">
+                <!-- Swap this with your own image -->
+                <div
+                  class="sports-heroImg"
+                  style="background-image: url('img/tshirt.jpeg')"
+                ></div>
+                <div class="sports-heroOverlay"></div>
+
+                <div class="sports-heroTag">
+                  <span class="sports-heroTagK">ENGINEERED</span>
+                  <span class="sports-heroTagT">ENERGY &amp; INTENTION</span>
+                </div>
+              </div>
+
+              <div class="sports-heroStrip">
+                <div
+                  class="sports-stripCard"
+                  style="background-image: url('img/tshirt.jpeg')"
+                ></div>
+                <div
+                  class="sports-stripCard"
+                  style="background-image: url('img/tshirt.jpeg')"
+                ></div>
+                <div
+                  class="sports-stripCard"
+                  style="background-image: url('img/tshirt.jpeg')"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PILLARS -->
+      <section class="sports-pillars sec" data-sec="pillars">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2 class="sec-title">Training pillars</h2>
+            <p class="sec-copy">
+              A system designed for athletes, lifters, and runners.
+            </p>
+          </div>
+
+          <div class="sports-pillarGrid">
+            <article class="sports-pillar" data-reveal>
+              <p class="sports-pillarK">PILLAR_01</p>
+              <h3 class="sports-pillarT">Mobility</h3>
+              <p class="sports-pillarP">
+                Cut lines that allow full range—hips, shoulders, and core.
+                Designed to move through lifts, sprints, and plyometrics.
+              </p>
+            </article>
+
+            <article class="sports-pillar" data-reveal>
+              <p class="sports-pillarK">PILLAR_02</p>
+              <h3 class="sports-pillarT">Thermal control</h3>
+              <p class="sports-pillarP">
+                Breathability where you heat up, coverage where you cool down.
+                Built for warm-ups, outdoor sessions, and recovery.
+              </p>
+            </article>
+
+            <article class="sports-pillar" data-reveal>
+              <p class="sports-pillarK">PILLAR_03</p>
+              <h3 class="sports-pillarT">Durability</h3>
+              <p class="sports-pillarP">
+                Reinforced stress points and layered construction to handle
+                grit: gym floors, track sessions, and daily wear.
+              </p>
+            </article>
+
+            <article class="sports-pillar" data-reveal>
+              <p class="sports-pillarK">PILLAR_04</p>
+              <h3 class="sports-pillarT">Presence</h3>
+              <p class="sports-pillarP">
+                Performance silhouettes with street energy. Your kit should look
+                as strong as it feels.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROGRAM TIMELINE (different layout) -->
+      <section class="sports-program sec" data-sec="program">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2 class="sec-title">Performance program</h2>
+            <p class="sec-copy">A simple flow: warm-up, work, recover.</p>
+          </div>
+
+          <div class="sports-timeline">
+            <div class="sports-step" data-reveal>
+              <span class="sports-stepNum">01</span>
+              <div class="sports-stepBody">
+                <h3 class="sports-stepT">Warm-up kit</h3>
+                <p class="sports-stepP">
+                  Light layers. Mobility-ready cuts. Fast heat-up.
+                </p>
+                <div class="sports-stepTags">
+                  <span class="sports-tag">Breathable</span>
+                  <span class="sports-tag">Layering</span>
+                  <span class="sports-tag">Stretch</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="sports-step" data-reveal>
+              <span class="sports-stepNum">02</span>
+              <div class="sports-stepBody">
+                <h3 class="sports-stepT">Work set</h3>
+                <p class="sports-stepP">
+                  Compression support. Sweat control. Zero distraction.
+                </p>
+                <div class="sports-stepTags">
+                  <span class="sports-tag">Support</span>
+                  <span class="sports-tag">Grip</span>
+                  <span class="sports-tag">Vent</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="sports-step" data-reveal>
+              <span class="sports-stepNum">03</span>
+              <div class="sports-stepBody">
+                <h3 class="sports-stepT">Recovery</h3>
+                <p class="sports-stepP">
+                  Soft layers. Thermal balance. Built for the commute home.
+                </p>
+                <div class="sports-stepTags">
+                  <span class="sports-tag">Comfort</span>
+                  <span class="sports-tag">Warmth</span>
+                  <span class="sports-tag">Street</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sports-programCTA" data-reveal>
+            <div class="sports-ctaBand">
+              <h3 class="sports-ctaT">
+                Built for athletes. Designed for presence.
+              </h3>
+              <p class="sports-ctaP">
+                Drop_01 is a foundation. The next arcs bring more sport-specific
+                silhouettes.
+              </p>
+              <div class="sports-ctaBtns">
+                <a class="rail-btn" href="shop.html">Shop Drop_01</a>
+                <a class="rail-btn rail-btn-ghost" href="contact.html"
+                  >Athlete enquiry</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURE STRIP -->
+      <section class="sports-feature sec" data-sec="feature">
+        <div class="wrap">
+          <div class="sports-featureGrid">
+            <div class="sports-featureLeft" data-reveal>
+              <h2 class="sec-title">Sport focus</h2>
+              <p class="sec-copy">
+                Built for gym, running, functional training, and everyday
+                movement. We design with the athlete’s constraints in mind—then
+                elevate it with street DNA.
+              </p>
+
+              <div class="sports-focusList">
+                <div class="sports-focusItem">
+                  <span class="sports-focusK">GYM</span>
+                  <span class="sports-focusV">Stability + range</span>
+                </div>
+                <div class="sports-focusItem">
+                  <span class="sports-focusK">RUN</span>
+                  <span class="sports-focusV">Light + breathable</span>
+                </div>
+                <div class="sports-focusItem">
+                  <span class="sports-focusK">FUNCTIONAL</span>
+                  <span class="sports-focusV">Durable + flexible</span>
+                </div>
+                <div class="sports-focusItem">
+                  <span class="sports-focusK">RECOVERY</span>
+                  <span class="sports-focusV">Comfort + warmth</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="sports-featureRight" data-reveal>
+              <div class="sports-featureCards">
+                <div
+                  class="sports-cardImg"
+                  style="background-image: url('img/tshirt.jpeg')"
+                ></div>
+                <div
+                  class="sports-cardImg"
+                  style="background-image: url('img/tshirt.jpeg')"
+                ></div>
+                <div
+                  class="sports-cardImg"
+                  style="background-image: url('img/tshirt.jpeg')"
+                ></div>
+                <div
+                  class="sports-cardImg"
+                  style="background-image: url('img/tshirt.jpeg')"
+                ></div>
+              </div>
+              <a class="rail-btn sports-featureBtn" href="gallery.html"
+                >Open Gallery</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+           FOOTER — Contact + icons + menu links
+           animation hooks:
+           .foot / .foot-grid / .foot-card / .foot-links / .foot-actions
+      ========================= -->
+    <footer class="foot" id="contact" data-sec="footer">
+      <div class="wrap">
+        <div class="foot-grid">
+          <div class="foot-card" data-anim="foot-brand">
+            <div class="foot-logoRow">
+              <img
+                class="foot-logo"
+                src="img/logoARC.png"
+                alt="Bolt Arc logo"
+              />
+            </div>
+            <p class="foot-copy">
+              Performance streetwear engineered for motion. Built for pace.
+              Designed for presence.
+            </p>
+          </div>
+
+          <div class="foot-card" data-anim="foot-contact">
+            <h5 class="foot-title">CONTACT</h5>
+
+            <div class="foot-actions">
+              <a
+                class="foot-action"
+                href="mailto:hello@boltarc.com"
+                aria-label="Email"
+              >
+                <span class="foot-ico" aria-hidden="true">
+                  <!-- mail icon -->
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"
+                    />
+                  </svg>
+                </span>
+                <span>Email</span>
+              </a>
+
+              <a
+                class="foot-action"
+                href="https://wa.me/447000000000"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+              >
+                <span class="foot-ico" aria-hidden="true">
+                  <!-- whatsapp-ish bubble -->
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 2a9.7 9.7 0 0 0-9.7 9.7A9.6 9.6 0 0 0 3.6 16L2 22l6-1.6a9.7 9.7 0 0 0 4 .9A9.7 9.7 0 1 0 12 2Zm0 17.6a7.9 7.9 0 0 1-3.6-.9l-.3-.2-3.6 1 .9-3.5-.2-.3a7.8 7.8 0 1 1 14.3-4.1 7.8 7.8 0 0 1-7.5 8Z"
+                    />
+                  </svg>
+                </span>
+                <span>WhatsApp</span>
+              </a>
+
+              <a class="foot-action" href="#" aria-label="Book a meeting">
+                <span class="foot-ico" aria-hidden="true">
+                  <!-- calendar -->
+                  <svg viewBox="0 0 24 24">
+                    <path d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm13 8H6v10h14V10Z" />
+                  </svg>
+                </span>
+                <span>Book meeting</span>
+              </a>
+
+              <a class="foot-action" href="#" aria-label="Read FAQs">
+                <span class="foot-ico" aria-hidden="true">
+                  <!-- info -->
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 15h-2v-6h2Zm0-8h-2V7h2Z"
+                    />
+                  </svg>
+                </span>
+                <span>Read FAQs</span>
+              </a>
+            </div>
+
+            <p class="foot-small">
+              Mon–Fri, 09:00–18:00 (UK). Response within 24 hours.
+            </p>
+          </div>
+
+          <div class="foot-card" data-anim="foot-links">
+            <h5 class="foot-title">LINKS</h5>
+            <nav class="foot-links" aria-label="Footer navigation">
+              <a href="/">Home</a>
+              <a href="shop.html">SHOP</a>
+              <a href="sports.html">SPORTS</a>
+              <a href="gallery.html">GALLERY Tech</a>
+              <a href="contact.html">CONTACT US</a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="foot-bottom" data-anim="foot-bottom">
+          <span>© <span id="year"></span> Bolt Arc. All rights reserved.</span>
+          <span class="foot-dim">Built for motion.</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
